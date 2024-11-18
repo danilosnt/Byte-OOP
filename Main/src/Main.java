@@ -42,17 +42,17 @@ public class Main {
     }
 
     private static void registerBytes(Scanner scanner) {
-        System.out.print("Enter the number of bytes: ");
+        System.out.print("\nEnter the number of bytes: ");
         BigInteger valor = scanner.nextBigInteger();
         values.add(new ConvertBytes(valor));
-        System.out.println("Value registered successfully!");
+        System.out.println("\nValue registered successfully!");
     }
 
     private static void listValues() {
         if (values.isEmpty()) {
-            System.out.println("No value registered.");
+            System.out.println("\nNo value registered.");
         } else {
-            System.out.println("Registered values:");
+            System.out.println("\nRegistered values:");
             for (int i = 0; i < values.size(); i++) {
                 System.out.printf("%d. %s bytes%n", i + 1, values.get(i).getValue().toString());
             }
@@ -61,9 +61,9 @@ public class Main {
 
     private static void convertValues() {
         if (values.isEmpty()) {
-            System.out.println("No value to convert.");
+            System.out.println("\nNo value to convert.");
         } else {
-            System.out.println("Conversion results:");
+            System.out.println("\nConversion results:");
             for (Convert convert : values) {
                 System.out.printf("%s bytes = %s%n", convert.getValue().toString(), convert.converter());
             }

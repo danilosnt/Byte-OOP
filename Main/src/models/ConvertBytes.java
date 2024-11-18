@@ -4,17 +4,17 @@ import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class ConversorBytes extends Conversor {
+public class ConvertBytes extends Convert {
     private static final String[] UNITS = {"bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"};
     private static final BigInteger ONE_KB = new BigInteger("1024");
 
-    public ConversorBytes(BigInteger valor) {
-        super(valor);
+    public ConvertBytes(BigInteger value) {
+        super(value);
     }
 
     @Override
     public String converter() {
-        BigInteger bytes = getValor();
+        BigInteger bytes = getValue();
         int unitIndex = 0;
         BigDecimal value = new BigDecimal(bytes);
 

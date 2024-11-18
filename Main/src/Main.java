@@ -1,15 +1,15 @@
-import models.Conversor;
-import models.ConversorBytes;
+import models.Convert;
+import models.ConvertBytes;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static final ArrayList<Conversor> valores = new ArrayList<>();
+    private static final ArrayList<Convert> values = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int opcao;
+        int option;
 
         do {
             System.out.println("\n===== Menu =====");
@@ -18,17 +18,17 @@ public class Main {
             System.out.println("3. Convert values");
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
-            opcao = scanner.nextInt();
+            option = scanner.nextInt();
 
-            switch (opcao) {
+            switch (option) {
                 case 1:
-                    cadastrarBytes(scanner);
+                    registerBytes(scanner);
                     break;
                 case 2:
-                    listarValores();
+                    listValues();
                     break;
                 case 3:
-                    converterValores();
+                    convertValues();
                     break;
                 case 4:
                     System.out.println("Ending the program...");
@@ -36,36 +36,36 @@ public class Main {
                 default:
                     System.out.println("Invalid option!");
             }
-        } while (opcao != 4);
+        } while (option != 4);
 
         scanner.close();
     }
 
-    private static void cadastrarBytes(Scanner scanner) {
+    private static void registerBytes(Scanner scanner) {
         System.out.print("Enter the number of bytes: ");
         BigInteger valor = scanner.nextBigInteger();
-        valores.add(new ConversorBytes(valor));
+        values.add(new ConvertBytes(valor));
         System.out.println("Value registered successfully!");
     }
 
-    private static void listarValores() {
-        if (valores.isEmpty()) {
+    private static void listValues() {
+        if (values.isEmpty()) {
             System.out.println("No value registered.");
         } else {
             System.out.println("Registered values:");
-            for (int i = 0; i < valores.size(); i++) {
-                System.out.printf("%d. %s bytes%n", i + 1, valores.get(i).getValor().toString());
+            for (int i = 0; i < values.size(); i++) {
+                System.out.printf("%d. %s bytes%n", i + 1, values.get(i).getValue().toString());
             }
         }
     }
 
-    private static void converterValores() {
-        if (valores.isEmpty()) {
+    private static void convertValues() {
+        if (values.isEmpty()) {
             System.out.println("No value to convert.");
         } else {
             System.out.println("Conversion results:");
-            for (Conversor conversor : valores) {
-                System.out.printf("%s bytes = %s%n", conversor.getValor().toString(), conversor.converter());
+            for (Convert convert : values) {
+                System.out.printf("%s bytes = %s%n", convert.getValue().toString(), convert.converter());
             }
         }
     }

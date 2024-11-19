@@ -42,10 +42,16 @@ public class Main {
     }
 
     private static void registerBytes(Scanner scanner) {
-        System.out.print("\nEnter the number of bytes: ");
+        System.out.print("Enter the number of bytes: ");
         BigInteger valor = scanner.nextBigInteger();
+
+        if (valor.equals(BigInteger.ZERO)) {
+            System.out.println("0 bytes cannot be registered. Returning to the menu...");
+            return;
+        }
+
         values.add(new ConvertBytes(valor));
-        System.out.println("\nValue registered successfully!");
+        System.out.println("Value registered successfully!");
     }
 
     private static void listValues() {

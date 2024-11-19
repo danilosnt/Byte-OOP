@@ -1,5 +1,4 @@
 package models;
-
 import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.math.RoundingMode;

@@ -80,3 +80,32 @@ Defines the base class for all converters in the system.
   ```
 
 - An abstract method that must be implemented by subclasses, allowing different behaviors depending on the converter type.
+
+
+## ConvertBytes
+
+A concrete class that extends ```Convert```and implements the conversion logic specifically for bytes.
+
+  ```java
+  private static final String[] UNITS = {"bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"};
+  ```
+
+- An array of strings defining the measurement units used in the conversion.
+
+  ```java
+  private static final BigInteger ONE_KB = new BigInteger("1024");
+  ```
+
+- A ```BigInteger``` object representing the value ```1024```, used for calculations in the conversion process.
+
+  ```java
+  public ConvertBytes(BigInteger value)
+  ```
+
+- A constructor that calls the superclass constructor to initialize the ```value``` attribute.
+
+  ```java
+  public String converter()
+  ```
+
+- This metod implements the conversion logic.

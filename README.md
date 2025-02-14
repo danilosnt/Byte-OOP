@@ -125,5 +125,43 @@ return value.toString().replace(".", ",") + " " + UNITS [unitIndex];
 ```
 
 1 - Converts the initial byte value into a ```BigDecimal``` object.
+
 2 - Iteratively divides the value by ```1024```while it remains greater than or equal to ```1024```.
+
 3 - Generates a formatted string with the converted value and the corresponding unit.
+
+
+## OOP Concepts in the Components
+
+<h4>Encapsulation</h4>
+
+```java
+private BigInteger value;
+```
+
+- The ```value``` attribute in the ```Convert``` class is _private_.
+- It can only be accessed through public methods (```getValue()``` and ```setValue()```), ensuring controlled data manipulation.
+
+<h4>Inheritance</h4>
+
+```java
+public class ConvertBytes extends Convert
+```
+
+- The ```ConvertBytes``` class _inherits_ from the abstrect class ```Convert```.
+- This allows the base class to define common behavior while delegating the ```converter()``` method implemetation to subclasses.
+
+
+<h4>Polymorphism</h4>
+
+```java
+ConvertBytes.java
+
+
+public class ConvertBytes extends Convert
+.
+public String converter() {
+```
+
+- This method in Convert is _overridden_ in ```ConvertBytes```
+- In ```Main```, the ```converter()``` method is called _polymorphically_, allowing the code to work with different types of converters.

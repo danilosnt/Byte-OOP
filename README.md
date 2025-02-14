@@ -47,7 +47,7 @@ This is the main class, resposible for managing the user interfaces and storing 
 
   ```java
   if (values.isEmpty()) {
-      System.out.println("\nNov value registeres.");
+    System.out.println("\nNov value registeres.");
   ```
 
   ```java
@@ -59,9 +59,9 @@ This is the main class, resposible for managing the user interfaces and storing 
 
   ```java
   } else {
-      System.out.println("\nConversion Results:");
-      for (Convert convert : values) {
-          System.out.printf("%s bytes = %s%n", convert.getValue().toString(), convert.converter());
+    System.out.println("\nConversion Results:");
+    for (Convert convert : values) {
+      System.out.printf("%s bytes = %s%n", convert.getValue().toString(), convert.converter());
   ```
 
 
@@ -109,3 +109,21 @@ A concrete class that extends ```Convert```and implements the conversion logic s
   ```
 
 - This metod implements the conversion logic.
+
+
+```java
+BigInteger bytes = getValue();
+int unitIndex = 0;
+BigDecimal value = new BigDecimal(bytes);
+
+while (value.compareTo(new BigDecimal(ONE_KB)) >= 0 && unitIndex < UNITS.length - 1) {
+  value = value.divide(new BigDecimal(ONE_KB)), 2, RoundingMode.HALF_UP);
+  unitInde++;
+}
+
+return value.toString().replace(".", ",") + " " + UNITS [unitIndex];
+```
+
+1 - Converts the initial byte value into a ```BigDecimal``` object.
+2 - Iteratively divides the value by ```1024```while it remains greater than or equal to ```1024```.
+3 - Generates a formatted string with the converted value and the corresponding unit.

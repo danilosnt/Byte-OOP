@@ -1,6 +1,6 @@
 <h1>Java Project to apply OOP concepts</h1> 
 
-<h2>Structure</h3>
+<h3>Structure</h3>
 
 This project is organized into three files:
 
@@ -8,16 +8,14 @@ This project is organized into three files:
 - Convert.java: The class that defines the base for data converters.
 - ConvertBytes: A concrete class that implements logic for byte conversion.
 
-<h3>Classes</h3>
 
-<h4>Main</h4>
-  
+## Main
+
 This is the main class, resposible for managing the user interfaces and storing registered byte values.
 
-
-```java
-private static final ArrayList<Convert> values = new ArrayList<>();
-```
+  ```java
+  private static final ArrayList<Convert> values = new ArrayList<>();
+  ```
 
 ```values```: An ArrayList that stores objects of type ```Convert```. This allows future expansion by adding new types of converters without modifying the main code.
 
@@ -65,3 +63,20 @@ private static final ArrayList<Convert> values = new ArrayList<>();
       for (Convert convert : values) {
           System.out.printf("%s bytes = %s%n", convert.getValue().toString(), convert.converter());
   ```
+
+
+## Convert
+
+Defines the base class for all converters in the system.
+
+  ```java
+  private BigInteger value;
+  ```
+
+- The ```value``` attribute is encapsulated and can only be accessed or modified using the ```getValue()```and ```setValue()``` methods.
+
+  ```java
+  public abstract class Convert
+  ```
+
+- An abstract method that must be implemented by subclasses, allowing different behaviors depending on the converter type.

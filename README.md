@@ -11,7 +11,7 @@ This project is organized into three files:
 
 ## Main
 
-This is the main class, resposible for managing the user interfaces and storing registered byte values.
+This is the main class, responsible for managing the user interfaces and storing registered byte values.
 
   ```java
   private static final ArrayList<Convert> values = new ArrayList<>();
@@ -42,12 +42,12 @@ This is the main class, resposible for managing the user interfaces and storing 
   private static void listValues()
   ```
 
-- Displays all stored values in the ```ÀrrayList```.
+- Displays all stored values in the ```ArrayList```.
 - If the list is empty, an appropriate message is shown.
 
   ```java
   if (values.isEmpty()) {
-    System.out.println("\nNov value registeres.");
+    System.out.println("\nNo value registeres.");
   ```
 
   ```java
@@ -55,7 +55,7 @@ This is the main class, resposible for managing the user interfaces and storing 
   ```
 
 - Iterates through objects in the ```values``` ArrayList and calls the ```converter()``` method for each object.
-- Display the conversion results.
+- Displays the conversion results.
 
   ```java
   } else {
@@ -108,7 +108,7 @@ A concrete class that extends ```Convert```and implements the conversion logic s
   public String converter()
   ```
 
-- This metod implements the conversion logic.
+- This method implements the conversion logic.
 
 
 ```java
@@ -117,11 +117,11 @@ int unitIndex = 0;
 BigDecimal value = new BigDecimal(bytes);
 
 while (value.compareTo(new BigDecimal(ONE_KB)) >= 0 && unitIndex < UNITS.length - 1) {
-  value = value.divide(new BigDecimal(ONE_KB)), 2, RoundingMode.HALF_UP);
-  unitInde++;
+  value = value.divide(new BigDecimal(ONE_KB), 2, RoundingMode.HALF_UP);
+  unitIndex++;
 }
 
-return value.toString().replace(".", ",") + " " + UNITS [unitIndex];
+return value.toString().replace(".", ",") + " " + UNITS[unitIndex];
 ```
 
 1 - Converts the initial byte value into a ```BigDecimal``` object.
@@ -148,8 +148,8 @@ private BigInteger value;
 public class ConvertBytes extends Convert
 ```
 
-- The ```ConvertBytes``` class _inherits_ from the abstrect class ```Convert```.
-- This allows the base class to define common behavior while delegating the ```converter()``` method implemetation to subclasses.
+- The ```ConvertBytes``` class _inherits_ from the abstract class ```Convert```.
+- This allows the base class to define common behavior while delegating the ```converter()``` method implementation to subclasses.
 
 
 <h4>Polymorphism</h4>
